@@ -1,0 +1,238 @@
+@import "normalize.scss";
+html,
+body {
+    scrollbar-color: rgba(255, 75, 31, 0.6) rgba(31, 221, 255, 0.6);
+}
+body {
+    background: linear-gradient(90deg, rgba(255, 75, 31, 0.6) 0%, rgba(31, 221, 255, 0.6) 100%), #ffffff;
+    padding: 44px 80px;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+}
+body::-webkit-scrollbar-track {
+    background-color: rgba(255, 75, 31, 0.6);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(31, 221, 255, 0.6);
+    border-radius: 40px;
+}
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+.work-space {
+    min-height: 60vh;
+
+    background: #f3f5f9;
+    box-shadow: 2px 8px 32px rgba(134, 140, 144, 0.35);
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    user-select: none;
+    &__container {
+        padding: 0 72px;
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+        height: 88px;
+        background-color: white;
+        &-container {
+            padding: 0 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .header-title {
+            h1 {
+                color: #f2911b;
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 700;
+                font-size: 23px;
+            }
+        }
+        .add-requisition {
+            width: 30px;
+            .plus-item {
+                fill: #f2911b;
+            }
+        }
+    }
+    &__content {
+        padding: 40px 0;
+
+        .requisition-list {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            overflow-y: auto;
+
+            padding: 10px;
+            &__item {
+                flex: 25% 1 1;
+                height: 324px;
+                background: #ffffff;
+                box-shadow: 0px 2px 8px rgba(134, 140, 144, 0.05);
+                border-radius: 16px;
+                transition: 0.4s;
+                margin-bottom: 30px;
+                &:not(:nth-child(3n)) {
+                    margin-right: 30px;
+                }
+                &:last-child {
+                    margin-right: 0px;
+                }
+                &:hover {
+                    box-shadow: 0px 4px 10px rgb(135, 135, 185);
+                    transition: 0.4s;
+                }
+            }
+        }
+    }
+}
+.requisition-list::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 20px;
+}
+.requisition-list::-webkit-scrollbar-track {
+    background-color: rgba(255, 75, 31, 0.6);
+}
+.requisition-list::-webkit-scrollbar-thumb {
+    background-color: rgba(31, 221, 255, 0.6);
+    border-radius: 40px;
+}
+.logo {
+    padding: 0 80px;
+    margin-bottom: 44px;
+    user-select: none;
+    &-label {
+        background: #ea4c89;
+        padding: 8px 16px;
+        border-radius: 16px;
+        margin-right: 16px;
+    }
+    span {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 900;
+        font-size: 28px;
+        line-height: 40px;
+        color: #ffffff;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+}
+.form-page {
+    padding: 40px;
+    &__container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h1 {
+            color: #f2911b;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+        }
+    }
+}
+.form {
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    &-item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        position: relative;
+        &__label {
+            color: #ce204b;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            position: absolute;
+            top: 17px;
+            left: 25px;
+            font-size: 17px;
+            transition: 0.4s;
+            &-active {
+                top: -15px;
+                left: 25px;
+                font-size: 13px;
+                color: #c9637d;
+                background: white;
+                padding: 5px;
+                transition: 0.4s;
+            }
+        }
+        &__input,
+        &__textarea {
+            padding: 15px 25px;
+            border-radius: 15px;
+            border: 2px solid #ce204b;
+            color: #f2911b;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+
+            &:focus {
+                outline: none;
+                border: 2px solid #f2911b;
+                transition: 0.4s;
+            }
+        }
+        &__textarea {
+            resize: none;
+            height: 100px;
+        }
+        &__button {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            .button {
+                background-color: #f2911b;
+                padding: 20px;
+                border-radius: 20px;
+                text-align: center;
+                color: white;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover {
+                    box-shadow: 0px 2px 4px #f2911b;
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
+}
+.prev-button {
+    margin-right: 15px;
+    background-color: #ce204b;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+
+    &:hover {
+        box-shadow: 0px 2px 4px #ce204b;
+        transition: 0.3s;
+    }
+}
+.button-font {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    &:active {
+        transform: translateY(5px);
+    }
+}
