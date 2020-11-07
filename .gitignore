@@ -16,7 +16,7 @@ client/build
 
 client/build
 
-/config
+
 /config/default.json
 default.json
 # misc
