@@ -7,10 +7,12 @@ client/
 .pnp.js
 client/build
 config
+model
 # testing
 /coverage
 
 # productioncd
+model
 client/
 client/build
 config
