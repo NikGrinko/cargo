@@ -12,9 +12,8 @@ client/build
 /coverage
 
 # productioncd
-
 config
-client/build
+
 
 
 

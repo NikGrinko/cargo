@@ -74,12 +74,89 @@ body::-webkit-scrollbar-thumb {
             padding: 10px;
             &__item {
                 flex: 25% 1 1;
-                height: 324px;
+                max-height: 400px;
                 background: #ffffff;
                 box-shadow: 0px 2px 8px rgba(134, 140, 144, 0.05);
                 border-radius: 16px;
                 transition: 0.4s;
                 margin-bottom: 30px;
+                padding: 20px;
+                padding-left: 25px;
+                overflow: hidden;
+
+                .item-title {
+                    font-family: "Inter";
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 20px;
+                    line-height: 32px;
+                    color: #2a3135;
+                    margin-bottom: 15px;
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    &::before {
+                        content: "";
+                        left: -7px;
+                        bottom: 0;
+                        width: 70%;
+                        height: 3px;
+                        background: #de262f;
+                        opacity: 0.4;
+                        border-radius: 2px;
+                        position: absolute;
+                    }
+                }
+                .item-company,
+                .item-name,
+                .item-phome,
+                .comment {
+                    font-family: "Inter";
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 24px;
+                    position: relative;
+                    padding: 10px 0;
+                    display: flex;
+                    align-items: center;
+                }
+                .item-phome {
+                    &::before {
+                        content: "";
+                        left: -10px;
+                        width: 4px;
+                        height: 100%;
+                        background: #26de81;
+                        opacity: 0.4;
+                        border-radius: 2px;
+                        position: absolute;
+                    }
+                }
+                .item-company,
+                .item-name,
+                .comment {
+                    position: relative;
+                    &::before {
+                        content: "";
+                        left: -10px;
+                        width: 4px;
+                        height: 100%;
+                        background: #dce0e2;
+                        opacity: 0.4;
+                        border-radius: 2px;
+                        position: absolute;
+                    }
+                }
+                .ati {
+                    background: rgba(38, 222, 129, 0.6);
+                    text-decoration: none;
+                    color: #ffffff;
+                    padding: 10px 32px;
+                    margin-top: 10px;
+                    display: inline-block;
+                    border-radius: 16px;
+                }
                 &:not(:nth-child(3n)) {
                     margin-right: 30px;
                 }

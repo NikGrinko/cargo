@@ -1,8 +1,9 @@
-
-const ADD_NEW_REQUISITION = 'ADD_NEW_REQUISITION'
+const GET_ALL_REQUISITION = 'GET_ALL_REQUISITION';
+const ADD_NEW_REQUISITION = 'ADD_NEW_REQUISITION';
 
 const initialState = {
-    requistions: [{
+    requisitions: [{
+        id: null,
         companyName: '',
         FullName: '',
         contactPhone: null,
@@ -19,6 +20,13 @@ export const requisitionReducer = (state = initialState, action) => {
             return {
                 ...state,
                 requistions: action.payload
+            };
+        case GET_ALL_REQUISITION:
+            console.log(action.payload)
+            return {
+                ...state,
+                requisitions: action.payload
+
             }
         default:
             return state;

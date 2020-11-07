@@ -9,5 +9,12 @@ export const api = {
         } catch (error) {
             console.log(error)
         }
+    },
+    async getAllRequistion() {
+        try {
+            return await axios.get('/api/getAll')
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

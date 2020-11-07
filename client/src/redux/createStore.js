@@ -5,7 +5,7 @@ import { reducer as FormReducer } from 'redux-form';
 
 
 let reducers = combineReducers({
-    requisition: requisitionReducer,
+    applications: requisitionReducer,
     form: FormReducer
 })
 
