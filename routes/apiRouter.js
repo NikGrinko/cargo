@@ -21,9 +21,11 @@ router.post('/requisition', async (req, res) => {
         const Day = Data.getDate();
         const Hour = Data.getHours();
         const Minutes = Data.getMinutes();
-        const time = `${Hour}+${Minutes}  ${Day}:${Month}:${Year}`
+        const time = `${Hour}:${Minutes}  ${Day}:${Month}:${Year}`
 
-        new TableItem({ companyName, FullName, contactPhone, comment, ati, time })
+        const newRequisition = new TableItem({ companyName, FullName, contactPhone, comment, ati, time });
+        await newRequisition.save()
+        newRequisition.remove();
         res.status(201).json({ message: 'Заявка создана' })
     } catch (e) {
         console.log(e)
