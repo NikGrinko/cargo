@@ -8,11 +8,13 @@ client/
 client/build
 config
 model
+/model
 # testing
 /coverage
 
 # productioncd
 model
+/model
 client/
 client/build
 config
