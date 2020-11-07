@@ -13,6 +13,9 @@ config
 # productioncd
 client/build
 config
+/config
+/config/default.json
+default.json
 # misc
 .DS_Store
 .env.local
