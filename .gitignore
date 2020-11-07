@@ -17,7 +17,7 @@ client/build
 client/build
 
 
-/config/default.json
+
 default.json
 # misc
 .DS_Store
