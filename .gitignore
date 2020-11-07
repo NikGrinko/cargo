@@ -2,17 +2,17 @@
 
 # dependencies
 /node_modules
-client/node_modules
+client
 /.pnp
 .pnp.js
 client/build
-/config
+config
 # testing
 /coverage
 
 # productioncd
 client/build
-/config
+config
 # misc
 .DS_Store
 .env.local
