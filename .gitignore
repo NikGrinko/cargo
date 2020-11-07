@@ -6,13 +6,13 @@ client/node_modules
 /.pnp
 .pnp.js
 client/build
-/config
+config/default.json
 # testing
 /coverage
 
 # productioncd
 client/build
-/config
+config/default.json
 # misc
 .DS_Store
 .env.local
