@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/client
+client/
 /.pnp
 .pnp.js
 client/build
@@ -11,7 +11,7 @@ config
 /coverage
 
 # productioncd
-/client
+client/
 client/build
 config
 /config
