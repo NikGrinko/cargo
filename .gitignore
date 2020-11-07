@@ -10,9 +10,8 @@ client/build
 /coverage
 
 # productioncd
-/build
-
-default.json
+client/build
+config/default.json
 # misc
 .DS_Store
 .env.local

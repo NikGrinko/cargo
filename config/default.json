@@ -1,1 +1,4 @@
-
+{
+    "port": 3002,
+    "mongoUrl": "mongodb+srv://nikita:52480@cluster0.6uioi.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}
