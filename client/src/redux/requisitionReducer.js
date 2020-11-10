@@ -2,32 +2,24 @@ const GET_ALL_REQUISITION = 'GET_ALL_REQUISITION';
 const ADD_NEW_REQUISITION = 'ADD_NEW_REQUISITION';
 
 const initialState = {
-    requisitions: [{
-        id: null,
-        companyName: '',
-        FullName: '',
-        contactPhone: null,
-        comment: '',
-        ati: null,
-        time: null,
-    }]
+    requisitions: []
 }
 
 
 export const requisitionReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_NEW_REQUISITION:
-            return {
-                ...state,
-                requistions: action.payload
-            };
-        case GET_ALL_REQUISITION:
-            console.log(action.payload)
-            return {
-                ...state,
-                requisitions: action.payload
+        //Бобавляем новую завку
 
-            }
+        //Берем все заявки
+        case GET_ALL_REQUISITION:
+            console.log(action.payload);
+            if (action.payload) {
+                return {
+                    ...state,
+                    requisitions: action.payload
+
+                }
+            };
         default:
             return state;
     }

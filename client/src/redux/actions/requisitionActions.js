@@ -5,11 +5,9 @@ const GET_ALL_REQUISITION = 'GET_ALL_REQUISITION';
 export const addRequisition = (data) => (dispatch) => {
     api.addRequistion(data)
         .then((res) => {
-            dispatch({
-                type: ADD_NEW_REQUISITION,
-                payload: res
-            })
+            dispatch(getAllRequisition());
         })
+
 }
 export const getAllRequisition = () => (dispatch) => {
     api.getAllRequistion()

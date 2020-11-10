@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const ListItem = ({ _id, companyName, FullName, ati, time, contactPhone, comment, index }) => {
-    console.log(companyName)
+
     return (
         <>
             <li className='requisition-list__item'>

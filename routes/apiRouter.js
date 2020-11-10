@@ -33,7 +33,7 @@ router.post('/requisition', async (req, res) => {
         const time = timeNow();
         const newRequisition = new TableItem({ companyName, FullName, contactPhone, comment, ati, time });
         await newRequisition.save()
-        res.status(201).json({ message: 'Заявка создана' })
+        res.status(201).json({ companyName, FullName, contactPhone, comment, ati, time, message: 'Заявка создана' })
     } catch (e) {
         console.log(e)
         res.status(500).json({ message: 'Не получилось добавить заявку' })
