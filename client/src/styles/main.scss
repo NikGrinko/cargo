@@ -106,11 +106,70 @@ body::-webkit-scrollbar-thumb {
                         border-radius: 2px;
                         position: absolute;
                     }
+                    .redact {
+                        position: relative;
+                        .options-svg {
+                            cursor: pointer;
+                            transform: rotate(-20deg);
+                            transition: 0.2s;
+                            &-active {
+                                transform: rotate(100deg);
+                                transition: 0.2s;
+                            }
+                        }
+                        &-options {
+                            position: absolute;
+                            z-index: 11111;
+                            right: 0;
+                            box-shadow: 0px 0px 5px rgb(112, 116, 112);
+                            background: white;
+                            border-radius: 10px;
+                            overflow: hidden;
+                            transform: scale(0);
+                            transition: 0.2s;
+                            top: -20px;
+                            right: -50px;
+                            li {
+                                font-size: 14px;
+                                text-align: center;
+                                transition: 0.3s;
+                                padding: 5px;
+                                z-index: 102;
+
+                                &:first-child {
+                                    &:hover {
+                                        background: rgb(255, 117, 117);
+                                        transition: 0.3s;
+                                    }
+                                }
+                                &:last-child {
+                                    &:hover {
+                                        background: rgb(253, 255, 117);
+                                        transition: 0.3s;
+                                    }
+                                }
+                            }
+                            &-active {
+                                transform: scale(1);
+                                transition: 0.5s;
+                                top: 30px;
+                                right: 15px;
+                            }
+                        }
+                    }
+                }
+                .item-data {
+                    font-family: "Inter";
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 24px;
                 }
                 .item-company,
                 .item-name,
                 .item-phome,
-                .comment {
+                .item-comment,
+                item-data {
                     font-family: "Inter";
                     font-style: normal;
                     font-weight: 600;
@@ -135,7 +194,7 @@ body::-webkit-scrollbar-thumb {
                 }
                 .item-company,
                 .item-name,
-                .comment {
+                .item-comment {
                     position: relative;
                     &::before {
                         content: "";
