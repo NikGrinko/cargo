@@ -44,14 +44,24 @@ router.put('/requisition', async (req, res) => {
     }
 })
 
-router.delete('/requisition', async (req, res) => {
+router.delete('/requisition/:code', async (req, res) => {
+
     try {
-        const { id } = req.body
-        const requisition = TableItem.find({ id })
-        await requisition.remove();
-        res.status(201).json({ message: 'Заявка удалена' })
+        const { code } = req.params
+        await TableItem.deleteOne({ _id: code });
+        res.status(201).json({ message: 'Заявка удалена' });
     } catch (e) {
-        res.status(500).json({ message: 'Не удалить заявку' })
+        res.status(500).json({ message: 'Не удалить заявку' });
+    }
+})
+router.get('/requisition/:code', async (req, res) => {
+
+    try {
+        const { code } = req.params
+        const requisition = await TableItem.findOne({ _id: code });
+        res.status(200).json({ requisition, message: 'Заявка открыта' });
+    } catch {
+        res.status(500).json({ message: 'Не удалось открыть заявку' });
     }
 })
 module.exports = router;

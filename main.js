@@ -7,14 +7,12 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(express.json({ extended: true }))
 async function start() {
-
     try {
         await mongoose.connect(config.get('mongoUrl'), {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useCreateIndex: true
         })
-
         app.listen(PORT, () => {
             console.log(`Server is running of ${PORT}`)
         })
