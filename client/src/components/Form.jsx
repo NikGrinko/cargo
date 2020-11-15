@@ -4,6 +4,8 @@ import ClassNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { addRequisition } from '../redux/actions/requisitionActions';
+import PrevButton from './button/PrevButton';
+const pathToButton = '/';
 const formGeneration = [
     {
         id: 1, htmlFor: "companyName", labelChildren: 'Название вашей фирмы',
@@ -86,8 +88,8 @@ const RequisitionForm = ({ handleSubmit, laberState, focusInput, blurInput }) =>
                 )
             })}
             <div className='form-item__button'>
-                <NavLink to={'/'} className='prev-button button-font'>Вернуться назад</NavLink>
-                <input type='submit' className='button button-font' value='Отправить заявку' />
+                <PrevButton path={pathToButton} />
+                <input type='submit' className='button-submit button-font' value='Отправить заявку' />
             </div>
 
         </form>

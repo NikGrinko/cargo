@@ -1,5 +1,8 @@
 @import "normalize.scss";
 @import "loader.scss";
+$ati-color: rgba(76, 234, 97, 0.8);
+$logo-color: #ea4c89;
+$delete-color: rgb(253, 62, 62);
 html,
 body {
     scrollbar-color: rgba(255, 75, 31, 0.6) rgba(31, 221, 255, 0.6);
@@ -168,7 +171,7 @@ body::-webkit-scrollbar-thumb {
 
                                 &:first-child {
                                     &:hover {
-                                        background: rgb(255, 117, 117);
+                                        background: $delete-color;
                                         transition: 0.3s;
                                     }
                                 }
@@ -205,7 +208,8 @@ body::-webkit-scrollbar-thumb {
                 .item-name,
                 .item-phome,
                 .item-comment,
-                item-data {
+                .item-data,
+                .ati {
                     font-family: "Inter";
                     font-style: normal;
                     font-weight: 600;
@@ -244,13 +248,18 @@ body::-webkit-scrollbar-thumb {
                     }
                 }
                 .ati {
-                    background: rgba(44, 187, 115, 0.8);
+                    background: $ati-color;
                     text-decoration: none;
                     color: #ffffff;
                     padding: 10px 32px;
                     margin-top: 10px;
                     display: inline-block;
                     border-radius: 16px;
+                    transition: 0.4s;
+                    &:hover {
+                        box-shadow: 0 2px 10px $ati-color;
+                        transition: 0.4s;
+                    }
                 }
                 &:not(:nth-child(3n)) {
                     margin-right: 30px;
@@ -281,11 +290,18 @@ body::-webkit-scrollbar-thumb {
     padding: 0 80px;
     margin-bottom: 44px;
     user-select: none;
+    &:hover {
+        .logo-label {
+            background: $ati-color;
+            transition: 1.3s;
+        }
+    }
     &-label {
         background: #ea4c89;
         padding: 8px 16px;
         border-radius: 16px;
         margin-right: 16px;
+        transition: 0.3s;
     }
     span {
         font-family: "Inter";
@@ -366,11 +382,12 @@ body::-webkit-scrollbar-thumb {
             resize: none;
             height: 100px;
         }
+        //! ========BUTTONS STYLE===========
         &__button {
             margin-top: 40px;
             display: flex;
             justify-content: center;
-            .button {
+            .button-submit {
                 background-color: #f2911b;
                 padding: 20px;
                 border-radius: 20px;
@@ -386,18 +403,19 @@ body::-webkit-scrollbar-thumb {
         }
     }
 }
-.prev-button {
+.button {
     margin-right: 15px;
-    background-color: #ce204b;
+    background-color: $logo-color;
     padding: 20px;
     border-radius: 20px;
     text-align: center;
     color: white;
     transition: 0.3s;
+}
 
+.prev-button {
     &:hover {
-        box-shadow: 0px 2px 4px #ce204b;
-        transition: 0.3s;
+        box-shadow: 0 2px 5px $logo-color;
     }
 }
 .button-font {
@@ -406,5 +424,97 @@ body::-webkit-scrollbar-thumb {
     font-weight: 700;
     &:active {
         transform: translateY(5px);
+    }
+}
+
+.reduct-color {
+    background: rgb(230, 255, 91);
+    color: black;
+    &:hover {
+        box-shadow: 0 2px 5px rgb(178, 180, 42);
+    }
+}
+.button-delete {
+    background-color: $delete-color;
+    color: white;
+    &:hover {
+        box-shadow: 0 2px 5px $delete-color;
+    }
+}
+//! ========/BUTTONS STYLE===========
+.open-requisition-item {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__container {
+        width: 100%;
+        max-width: 478px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 10px 0;
+    }
+    &__header {
+        width: 100%;
+        display: flex;
+        padding-bottom: 20px;
+        justify-content: center;
+        border-bottom: 1px solid black;
+    }
+    .open-item-title {
+        text-align: center;
+        h2 {
+            font-family: Inter;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 32px;
+            color: #2a3135;
+        }
+    }
+    .open-item-block {
+        display: flex;
+        align-items: flex-start;
+        max-width: 100%;
+
+        &:not(:first-child) {
+            margin-top: 20px;
+        }
+        &__label {
+            color: #ce204b;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 17px;
+            margin-right: 10px;
+        }
+        &__state {
+            color: #f2911b;
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 500;
+            max-width: 500px;
+            line-height: 22px;
+        }
+        .state-comment {
+            max-height: 200px;
+            overflow: hidden;
+            overflow-y: scroll;
+            padding-right: 5px;
+        }
+        .state-comment::-webkit-scrollbar {
+            width: 5px;
+            border-radius: 20px;
+        }
+        .state-comment::-webkit-scrollbar-track {
+            background-color: rgba(255, 75, 31, 0.6);
+        }
+        .state-comment::-webkit-scrollbar-thumb {
+            background-color: rgba(31, 221, 255, 0.6);
+            border-radius: 40px;
+        }
     }
 }

@@ -58,6 +58,7 @@ router.get('/requisition/:code', async (req, res) => {
 
     try {
         const { code } = req.params
+        console.log(code)
         const requisition = await TableItem.findOne({ _id: code });
         res.status(200).json({ requisition, message: 'Заявка открыта' });
     } catch {

@@ -1,29 +1,34 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ClassNames from 'classnames';
-import { deleteRequisition, addOpenReuisition, setLinkOpenRequisition } from '../redux/actions/requisitionActions';
+import { deleteRequisition, addOpenReuisition, toggleLoading } from '../redux/actions/requisitionActions';
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const ListItem = ({ _id, companyName, FullName, ati, time, contactPhone, comment, index }) => {
     const [optionsState, setoptionsState] = useState(false)
     const optionsRef = useRef();
     const dispatch = useDispatch();
+
     const openRequisition = (id) => {
-        dispatch(setLinkOpenRequisition(id))
+        dispatch(toggleLoading(true));
         dispatch(addOpenReuisition(id))
     }
     const deleteItem = (id) => {
         dispatch(deleteRequisition(id));
     }
+    //Изменение статуса отображения опций
     const toggleStatusOptions = () => {
         setoptionsState(!optionsState);
     }
+    //Проверка на клик вне области
     const handleOutsideClick = (event) => {
         const path = event.path || (event.composedPath && event.composedPath());
         if (!path.includes(optionsRef.current)) {
             setoptionsState(false);
         }
     }
+    //Обработчик клика
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
     }, [])
@@ -45,7 +50,7 @@ const ListItem = ({ _id, companyName, FullName, ati, time, contactPhone, comment
                         </ul>
                     </div>
                 </div>
-                <NavLink className='item-click' to={`/requisition/${_id}`} onClick={() => openRequisition(_id)}>
+                <Link to={`/requisition/${_id}`} className='item-click' onClick={() => openRequisition(_id)}>
                     <div className='item-company'>
                         Компания - {companyName}
                     </div>
@@ -63,7 +68,7 @@ const ListItem = ({ _id, companyName, FullName, ati, time, contactPhone, comment
                     <div className="item-data">
                         Дата: {time}
                     </div>
-                </NavLink>
+                </Link>
                 <div className="item-ati">
                     <a className="ati" target='_blank' href={`https://ati.su/firms/${ati}`}>Мы на ati.su</a>
                 </div>

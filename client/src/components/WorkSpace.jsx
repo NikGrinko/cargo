@@ -7,14 +7,14 @@ import OpenRequisition from './OpenRequisition';
 import { useSelector } from 'react-redux';
 const WorcSpace = () => {
 
-    const { linkToOpenRequisition } = useSelector(({ applications }) => applications);
+    const { linkToOpenRequisition, loading } = useSelector(({ applications }) => applications);
 
     return (
         <div className='work-space'>
             <Switch>
                 <Route exact path='/' render={() => <RequisitionList />} />
                 <Route exact path='/new-requisition' render={() => <FormAddRequisition />} />
-                <Route exact path={`/requisition/${linkToOpenRequisition}`} render={() => <OpenRequisition />} />
+                <Route exact path={`/requisition/${linkToOpenRequisition}`} render={() => <OpenRequisition loading={loading} />} />
             </Switch>
         </div>
     )

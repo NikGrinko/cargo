@@ -4,11 +4,9 @@ import { getAllRequisition } from '../redux/actions/requisitionActions';
 import { useDispatch } from 'react-redux';
 import ClassName from 'classnames';
 
-
-const Header = () => {
+const Header = React.memo(function Header() {
     const [updateState, setupdateState] = useState(false);
     const dispatch = useDispatch();
-    console.log(updateState);
     const updateList = () => {
 
         setupdateState(true);
@@ -51,6 +49,9 @@ const Header = () => {
             </div>
         </div >
     )
-}
+})
+
+
+
 
 export default Header;

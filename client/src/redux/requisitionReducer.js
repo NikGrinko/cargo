@@ -8,7 +8,7 @@ const initialState = {
     requisitions: [],
     linkToOpenRequisition: '',
     openRequisition: {},
-    loading: false
+    loading: true
 }
 
 export const requisitionReducer = (state = initialState, action) => {

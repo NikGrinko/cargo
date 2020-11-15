@@ -1,7 +1,4 @@
 import axios from 'axios';
-import { connect } from 'mongoose';
-
-
 export const api = {
     async addRequistion(data) {
         JSON.stringify(data)
@@ -26,7 +23,6 @@ export const api = {
         }
     },
     async openRequistion(id) {
-        console.log(`id: ${id}`)
         try {
             return await axios.get(`/api/requisition/${id}`)
         }

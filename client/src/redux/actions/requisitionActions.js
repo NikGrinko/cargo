@@ -9,7 +9,7 @@ const TOOGLE_LOADER = 'TOOGLE_LOADER';
 export const setLinkOpenRequisition = (id) => ({ type: SET_LINK_TO_OPEN_REQUISTION, payload: id });
 export const toggleLoading = (status) => ({ type: TOOGLE_LOADER, payload: status })
 export const addOpenReuisition = (id) => (dispatch) => {
-    dispatch(toggleLoading(true));
+    dispatch(setLinkOpenRequisition(id))
     api.openRequistion(id).then((res) => {
         dispatch({
             type: SET_OPEN_REQUISITION,
