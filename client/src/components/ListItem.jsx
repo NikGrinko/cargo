@@ -1,15 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ClassNames from 'classnames';
-import { deleteRequisition, addOpenReuisition, toggleLoading } from '../redux/actions/requisitionActions';
+import { deleteRequisition, addOpenReuisition, toggleLoading, redactModStatus } from '../redux/actions/requisitionActions';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-
 const ListItem = ({ _id, companyName, FullName, ati, time, contactPhone, comment, index }) => {
     const [optionsState, setoptionsState] = useState(false)
     const optionsRef = useRef();
     const dispatch = useDispatch();
-
     const openRequisition = (id) => {
         dispatch(toggleLoading(true));
         dispatch(addOpenReuisition(id))
@@ -28,6 +25,11 @@ const ListItem = ({ _id, companyName, FullName, ati, time, contactPhone, comment
             setoptionsState(false);
         }
     }
+    const openRedactItem = (id) => {
+        dispatch(redactModStatus(true))
+        dispatch(toggleLoading(true));
+        dispatch(addOpenReuisition(id))
+    }
     //Обработчик клика
     useEffect(() => {
         document.body.addEventListener('click', handleOutsideClick);
@@ -45,8 +47,8 @@ const ListItem = ({ _id, companyName, FullName, ati, time, contactPhone, comment
 " />
                         </svg>
                         <ul className={ClassNames('redact-options', { 'redact-options-active': optionsState })}>
-                            <li onClick={() => { deleteItem(_id) }} >удалить</li>
-                            <li>редактировать</li>
+                            <li className='redact-options__item' onClick={() => { deleteItem(_id) }} >удалить</li>
+                            <Link onClick={() => openRedactItem(_id)} className='redact-options__item' to={`/requisition/${_id}`}>редактировать</Link>
                         </ul>
                     </div>
                 </div>

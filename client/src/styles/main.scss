@@ -10,6 +10,10 @@ body {
 body {
     background: linear-gradient(90deg, rgba(255, 75, 31, 0.6) 0%, rgba(31, 221, 255, 0.6) 100%), #ffffff;
     padding: 44px 80px;
+    margin-bottom: 50px;
+    @media (max-width: 700px) {
+        padding: 44px 30px;
+    }
 }
 body::-webkit-scrollbar {
     width: 10px;
@@ -26,9 +30,12 @@ body::-webkit-scrollbar-thumb {
     max-width: 1440px;
     margin: 0 auto;
 }
+.app {
+    padding-bottom: 20px;
+}
 .work-space {
     min-height: 60vh;
-
+    position: relative;
     background: #f3f5f9;
     box-shadow: 2px 8px 32px rgba(134, 140, 144, 0.35);
     border-radius: 24px;
@@ -37,6 +44,12 @@ body::-webkit-scrollbar-thumb {
     user-select: none;
     &__container {
         padding: 0 72px;
+        @media (max-width: 1200px) {
+            padding: 0 32px;
+        }
+        @media (max-width: 800px) {
+            padding: 0px;
+        }
     }
     &__header {
         display: flex;
@@ -49,6 +62,9 @@ body::-webkit-scrollbar-thumb {
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            @media (max-width: 700px) {
+                padding: 0 22px;
+            }
         }
         .header-buttons-container {
             display: flex;
@@ -82,6 +98,12 @@ body::-webkit-scrollbar-thumb {
                 font-style: normal;
                 font-weight: 700;
                 font-size: 23px;
+                @media (max-width: 445px) {
+                    font-size: 17px;
+                }
+                @media (max-width: 395px) {
+                    max-width: 100px;
+                }
             }
         }
         .add-requisition {
@@ -93,7 +115,9 @@ body::-webkit-scrollbar-thumb {
     }
     &__content {
         padding: 40px 0;
-
+        @media (max-width: 800px) {
+            padding: 20px 0;
+        }
         .requisition-list {
             display: flex;
             justify-content: flex-start;
@@ -102,6 +126,12 @@ body::-webkit-scrollbar-thumb {
             padding: 10px;
             &__item {
                 flex: 25% 1 1;
+                @media (max-width: 1000px) {
+                    flex: 45% 1 0;
+                }
+                @media (max-width: 670px) {
+                    flex: 100% 1 0;
+                }
                 background: #ffffff;
                 box-shadow: 0px 2px 8px rgba(134, 140, 144, 0.05);
                 border-radius: 16px;
@@ -113,6 +143,24 @@ body::-webkit-scrollbar-thumb {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                @media (min-width: 1000px) {
+                    &:not(:nth-child(3n)) {
+                        margin-right: 30px;
+                    }
+                }
+                @media (max-width: 1000px) {
+                    margin: 10px;
+                }
+                @media (min-width: 1000px) {
+                    &:last-child {
+                        margin-right: 0px;
+                    }
+                }
+
+                &:hover {
+                    box-shadow: 0px 4px 10px rgb(135, 135, 185);
+                    transition: 0.4s;
+                }
                 .item-click {
                     color: #2a3135;
                 }
@@ -162,7 +210,7 @@ body::-webkit-scrollbar-thumb {
                             top: -20px;
                             right: -50px;
 
-                            li {
+                            &__item {
                                 font-size: 14px;
                                 text-align: center;
                                 transition: 0.3s;
@@ -176,6 +224,9 @@ body::-webkit-scrollbar-thumb {
                                     }
                                 }
                                 &:last-child {
+                                    text-decoration: none;
+                                    color: black;
+
                                     &:hover {
                                         background: rgb(253, 255, 117);
                                         transition: 0.3s;
@@ -261,16 +312,6 @@ body::-webkit-scrollbar-thumb {
                         transition: 0.4s;
                     }
                 }
-                &:not(:nth-child(3n)) {
-                    margin-right: 30px;
-                }
-                &:last-child {
-                    margin-right: 0px;
-                }
-                &:hover {
-                    box-shadow: 0px 4px 10px rgb(135, 135, 185);
-                    transition: 0.4s;
-                }
             }
         }
     }
@@ -288,6 +329,12 @@ body::-webkit-scrollbar-thumb {
 }
 .logo {
     padding: 0 80px;
+    @media (max-width: 700px) {
+        padding: 0 30px;
+    }
+    @media (max-width: 400px) {
+        padding: 0 15px;
+    }
     margin-bottom: 44px;
     user-select: none;
     &:hover {
@@ -316,6 +363,9 @@ body::-webkit-scrollbar-thumb {
 }
 .form-page {
     padding: 40px;
+    @media (max-width: 600px) {
+        padding: 20px;
+    }
     &__container {
         display: flex;
         justify-content: center;
@@ -337,6 +387,9 @@ body::-webkit-scrollbar-thumb {
     padding: 40px;
     border-radius: 20px;
     margin-top: 20px;
+    @media (max-width: 600px) {
+        padding: 5px;
+    }
     &-item {
         display: flex;
         flex-direction: column;
@@ -360,6 +413,12 @@ body::-webkit-scrollbar-thumb {
                 background: white;
                 padding: 5px;
                 transition: 0.4s;
+            }
+            @media (max-width: 600px) {
+                font-size: 10px;
+            }
+            @media (max-width: 430px) {
+                font-size: 5px;
             }
         }
         &__input,
@@ -387,6 +446,12 @@ body::-webkit-scrollbar-thumb {
             margin-top: 40px;
             display: flex;
             justify-content: center;
+            @media (max-width: 600px) {
+                flex-direction: column;
+                .button {
+                    margin: 0 0 10px 0;
+                }
+            }
             .button-submit {
                 background-color: #f2911b;
                 padding: 20px;
@@ -427,11 +492,18 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-.reduct-color {
+.redact-color {
     background: rgb(230, 255, 91);
     color: black;
     &:hover {
         box-shadow: 0 2px 5px rgb(178, 180, 42);
+    }
+    &-save {
+        background-color: blue;
+        color: white;
+        &:hover {
+            box-shadow: 0 2px 5px blue;
+        }
     }
 }
 .button-delete {
@@ -454,7 +526,7 @@ body::-webkit-scrollbar-thumb {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-
+        margin-top: 50px;
         padding: 10px 0;
     }
     &__header {
@@ -463,6 +535,17 @@ body::-webkit-scrollbar-thumb {
         padding-bottom: 20px;
         justify-content: center;
         border-bottom: 1px solid black;
+        @media (max-width: 600px) {
+            .open-requisition-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .button {
+                    margin-top: 15px;
+                    margin-right: 0;
+                }
+            }
+        }
     }
     .open-item-title {
         text-align: center;
@@ -479,7 +562,9 @@ body::-webkit-scrollbar-thumb {
         display: flex;
         align-items: flex-start;
         max-width: 100%;
-
+        @media (max-width: 450px) {
+            flex-direction: column;
+        }
         &:not(:first-child) {
             margin-top: 20px;
         }
@@ -498,6 +583,57 @@ body::-webkit-scrollbar-thumb {
             font-weight: 500;
             max-width: 500px;
             line-height: 22px;
+            &-redactMod {
+                display: none;
+            }
+        }
+        &__new-state {
+            .input-redact {
+                padding: 5px 15px;
+                border-radius: 15px;
+                border: 1px solid #ce204b;
+                color: #f2911b;
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                display: none;
+                &:focus {
+                    outline: none;
+                }
+                &-active {
+                    display: block;
+                }
+            }
+            .textarea-redact {
+                padding: 15px 25px;
+                border-radius: 15px;
+                border: 2px solid #ce204b;
+                color: #f2911b;
+                font-family: "Inter";
+                font-style: normal;
+                font-weight: 500;
+                resize: none;
+                height: 100px;
+                border: none;
+                display: none;
+                &:focus {
+                    outline: none;
+                }
+                &-active {
+                    display: block;
+                }
+            }
+            textarea::-webkit-scrollbar {
+                width: 5px;
+                border-radius: 20px;
+            }
+            textarea::-webkit-scrollbar-track {
+                background-color: rgba(255, 75, 31, 0.6);
+            }
+            textarea::-webkit-scrollbar-thumb {
+                background-color: rgba(31, 221, 255, 0.6);
+                border-radius: 40px;
+            }
         }
         .state-comment {
             max-height: 200px;
@@ -517,4 +653,43 @@ body::-webkit-scrollbar-thumb {
             border-radius: 40px;
         }
     }
+}
+.thanks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &__title {
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        max-width: 500px;
+        line-height: 22px;
+        padding: 10px;
+    }
+    &__description {
+        padding: 20px;
+    }
+}
+.errors {
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 2px solid #ce204b;
+    color: #ff2e09;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+}
+.not-requisitions {
+    color: $logo-color;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 50px;
 }

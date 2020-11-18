@@ -3,13 +3,12 @@ import Header from './Header';
 import ListItem from './ListItem';
 import { useSelector } from 'react-redux';
 import Preloader from './Preloader';
-
 const RequisitionList = () => {
     const { requisitions, loading } = useSelector(({ applications }) => applications);
-
+    console.log(requisitions)
     return (
         <>
-            <Header />
+            <Header requisitions={requisitions.length} />
             {loading ? <Preloader />
                 :
                 <div className='work-space__container'>
@@ -23,9 +22,7 @@ const RequisitionList = () => {
                         }
                     </div>
                 </div>}
-
         </>
     )
 }
-
 export default RequisitionList;

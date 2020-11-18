@@ -4,15 +4,37 @@ const DELETE_REQUISITION = 'DELETE_REQUISITION';
 const SET_OPEN_REQUISITION = 'SET_OPEN_REQUISITION';
 const SET_LINK_TO_OPEN_REQUISTION = 'SET_LINK_TO_OPEN_REQUISTION';
 const TOOGLE_LOADER = 'TOOGLE_LOADER';
+const REDACT_REQUISITION = 'REDACT_REQUISITION';
+const REDACT_MOD = 'REDACT_MOD';
 const initialState = {
     requisitions: [],
     linkToOpenRequisition: '',
     openRequisition: {},
-    loading: true
+    loading: true,
+    redactMod: false
 }
 
 export const requisitionReducer = (state = initialState, action) => {
     switch (action.type) {
+        //Новый обьект после редактирования
+        case REDACT_REQUISITION: {
+            const newRequisitions = state.requisitions.map((item) => {
+                if (item._id === action.payload._id) {
+                    Object.assign(item, action.payload)
+                }
+                return item
+            })
+            return {
+                ...state,
+                requisitions: newRequisitions
+            }
+        }
+        case REDACT_MOD:
+            return {
+                ...state,
+                redactMod: action.payload
+            }
+        //Отображаем/Скрываем загрузку
         case TOOGLE_LOADER:
             return {
                 ...state,

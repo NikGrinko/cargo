@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Preloader = () => {
     return (
         <>
@@ -14,9 +13,7 @@ const Preloader = () => {
                 <div className="item-8"><div></div></div>
                 <div className="item-9"><div></div></div>
             </div>
-
         </>
     )
 }
-
 export default Preloader;

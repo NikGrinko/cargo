@@ -1,14 +1,11 @@
 import React from 'react';
-
 import { Switch, Route } from 'react-router-dom';
 import RequisitionList from './RequisitionList';
 import FormAddRequisition from './Form';
 import OpenRequisition from './OpenRequisition';
 import { useSelector } from 'react-redux';
 const WorcSpace = () => {
-
     const { linkToOpenRequisition, loading } = useSelector(({ applications }) => applications);
-
     return (
         <div className='work-space'>
             <Switch>
@@ -19,5 +16,4 @@ const WorcSpace = () => {
         </div>
     )
 }
-
 export default WorcSpace;

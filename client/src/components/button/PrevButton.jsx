@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-const PrevButton = ({ path }) => {
+import { redactModStatus } from '../../redux/actions/requisitionActions';
+import { useDispatch } from 'react-redux';
+const PrevButton = ({ path, text }) => {
+    const dispatch = useDispatch();
     return (
         <>
-            <NavLink to={path} className='button prev-button button-font'>Вернуться назад</NavLink>
+            <NavLink onClick={() => dispatch(redactModStatus(false))} to={path} className='button prev-button button-font'>{text}</NavLink>
         </>
     )
 }
-
 export default PrevButton;

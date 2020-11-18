@@ -29,5 +29,13 @@ export const api = {
         catch (error) {
             console.log(error);
         }
+    },
+    async redactRequisition(obj) {
+        try {
+            return await axios.put(`/api/requisition`, obj)
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 }

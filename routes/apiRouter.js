@@ -12,7 +12,6 @@ function timeNow() {
     const time = `${Hour}:${Minutes}  ${Day}:${Month}:${Year}`
     return time;
 }
-
 router.get('/getAll', async (req, res) => {
     try {
         const allRequisition = await TableItem.find();
@@ -21,7 +20,6 @@ router.get('/getAll', async (req, res) => {
         res.status(500).json({ message: 'Не получилось достать все заявки' })
     }
 })
-
 router.post('/requisition', async (req, res) => {
     try {
         const { companyName, FullName, contactPhone, comment, ati } = req.body
@@ -35,17 +33,19 @@ router.post('/requisition', async (req, res) => {
         res.status(500).json({ message: 'Не получилось добавить заявку' })
     }
 })
-
 router.put('/requisition', async (req, res) => {
     try {
+        const { _id, companyName, FullName, contactPhone, comment, ati } = req.body
+        await TableItem.updateOne({ _id }, { companyName, FullName, contactPhone, comment, ati })
+        const updatedItem = await TableItem.findOne({ _id });
+
+        res.status(201).json({ updatedItem, message: 'Заявка обновленна' })
 
     } catch (e) {
-
+        res.status(500).json({ message: 'Не получилось обновить заявку' })
     }
 })
-
 router.delete('/requisition/:code', async (req, res) => {
-
     try {
         const { code } = req.params
         await TableItem.deleteOne({ _id: code });
@@ -55,7 +55,6 @@ router.delete('/requisition/:code', async (req, res) => {
     }
 })
 router.get('/requisition/:code', async (req, res) => {
-
     try {
         const { code } = req.params
         console.log(code)

@@ -5,7 +5,9 @@ const DELETE_REQUISITION = 'DELETE_REQUISITION';
 const SET_OPEN_REQUISITION = 'SET_OPEN_REQUISITION';
 const SET_LINK_TO_OPEN_REQUISTION = 'SET_LINK_TO_OPEN_REQUISTION';
 const TOOGLE_LOADER = 'TOOGLE_LOADER';
-
+const REDACT_REQUISITION = 'REDACT_REQUISITION';
+const REDACT_MOD = 'REDACT_MOD';
+export const redactModStatus = (bull) => ({ type: REDACT_MOD, payload: bull })
 export const setLinkOpenRequisition = (id) => ({ type: SET_LINK_TO_OPEN_REQUISTION, payload: id });
 export const toggleLoading = (status) => ({ type: TOOGLE_LOADER, payload: status })
 export const addOpenReuisition = (id) => (dispatch) => {
@@ -50,4 +52,12 @@ export const deleteRequisition = (id) => (dispatch) => {
             })
             dispatch(toggleLoading(false));
         })
+}
+export const redactRequisition = (obj) => (dispatch) => {
+    api.redactRequisition(obj).then((res) => {
+        dispatch({
+            type: REDACT_REQUISITION,
+            payload: res.data.updatedItem
+        })
+    })
 }

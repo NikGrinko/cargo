@@ -3,7 +3,6 @@ const path = require('path');
 const config = require('config');
 const mongoose = require('mongoose');
 
-
 const app = express();
 app.use(express.json({ extended: true }))
 async function start() {

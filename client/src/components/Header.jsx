@@ -3,12 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { getAllRequisition } from '../redux/actions/requisitionActions';
 import { useDispatch } from 'react-redux';
 import ClassName from 'classnames';
-
-const Header = React.memo(function Header() {
+const Header = React.memo(function Header({ requisitions }) {
     const [updateState, setupdateState] = useState(false);
     const dispatch = useDispatch();
     const updateList = () => {
-
         setupdateState(true);
         dispatch(getAllRequisition())
         setTimeout(() => {
@@ -18,7 +16,7 @@ const Header = React.memo(function Header() {
     return (
         <div className='work-space__header'>
             <div className='work-space__header-container'>
-                <div className='header-title'><h1>Доступные заявки</h1></div>
+                <div className='header-title'><h1>Доступные заявки {requisitions ? `: ${requisitions}` : `: 0`}</h1></div>
                 <div className='header-buttons-container'>
                     <div onClick={() => updateList()} className='update-button'>
                         <svg className={ClassName('svg-update', { 'svg-update-active': updateState })} viewBox="0 0 25 25" fill="none" >
@@ -50,8 +48,4 @@ const Header = React.memo(function Header() {
         </div >
     )
 })
-
-
-
-
 export default Header;
