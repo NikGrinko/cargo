@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "pathname": "https://cargo-test-for-jobs.herokuapp.com/",
   "scripts": {
     "start": "node main.js",
     "start-server": "nodemon main.js",
